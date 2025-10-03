@@ -8,6 +8,9 @@ pipeline {
             }
         }
         stage('Build') {
+            agent {
+                docker { image 'maven:3.9.11-eclipse-temurin-17-alpine' }
+            }
             steps {
                 withMaven {
                     sh 'mvn clean install -DskipTests -Dfull'  
