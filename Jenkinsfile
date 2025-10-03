@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/LightGuard/incubator-kie-drools.git'
+                git url: 'https://github.com/LightGuard/incubator-kie-drools.git', branch: 'jenkinsfile'
             }
         }
         stage('Build') {
