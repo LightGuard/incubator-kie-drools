@@ -4,12 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Only perform a shallow checkout, saving space, network usage, and time
-                checkout scmGit(
-                    branches: [[name: '$GIT_LOCAL_BRANCH']],
-                    extensions: [ cloneOption(shallow: true) ],
-                    userRemoteConfigs: [[url: 'https://github.com/LightGuard/incubator-kie-drools.git' ]]
-                )
+                git url: 'https://github.com/LightGuard/incubator-kie-drools.git'
             }
         }
         stage('Build') {
