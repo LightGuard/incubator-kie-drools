@@ -9,7 +9,10 @@ pipeline {
         }
         stage('Build') {
             agent {
-                docker { image 'maven:3.9.11-eclipse-temurin-17' }
+                docker { 
+                    image 'maven:3.9.11-eclipse-temurin-17' 
+                    args '-v maven-repo:/root/.m2'
+                }
             }
             steps {
                 withMaven {
